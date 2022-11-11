@@ -117,7 +117,18 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
                         ],
                       ),
                       // 2 button
-                      Column(),
+                      Column(
+                        children: [
+                          MaterialButton(
+                            child: Text("Another Card"),
+                            onPressed: addCard,
+                          ),
+                          MaterialButton(
+                            child: Text("Next Round"),
+                            onPressed: null,
+                          ),
+                        ],
+                      ),
                     ]),
               )
             : Center(

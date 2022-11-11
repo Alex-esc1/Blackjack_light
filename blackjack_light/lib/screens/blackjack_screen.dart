@@ -8,6 +8,16 @@ class BlackJackScreen extends StatefulWidget {
 class _BlackJackScreenState extends State<BlackJackScreen> {
   bool isGameStarted = false;
 
+  List<Image> clientsCards = [];
+
+  String? clientsFirstCard;
+  String? clientsSecondCard;
+
+  List<Image> dealersCards = [];
+
+  String? dealersFirstCard;
+  String? dealersSecondCard;
+
   final Map<String, int> deckOfCards = {
     "cards/2.1.png": 2,
     "cards/2.2.png": 2,

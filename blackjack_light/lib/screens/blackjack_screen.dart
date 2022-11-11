@@ -99,37 +99,45 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
     return Scaffold(
         body: isGameStarted == true
             ? SafeArea(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      //dealers cards
-                      Column(
-                        children: [
-                          Text("Dealer score $dealersScore"),
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                      //playeer cards
-                      Column(
-                        children: [
-                          Text("Playeer score $clientsScore"),
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                      // 2 button
-                      Column(
-                        children: [
-                          MaterialButton(
-                            child: Text("Another Card"),
-                            onPressed: addCard,
+                child: Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        //dealers cards
+                        Column(
+                          children: [
+                            Text("Dealer score $dealersScore"),
+                            SizedBox(height: 20),
+                          ],
+                        ),
+                        //playeer cards
+                        Column(
+                          children: [
+                            Text("Playeer score $clientsScore"),
+                            SizedBox(height: 20),
+                          ],
+                        ),
+                        // 2 button
+                        IntrinsicWidth(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              MaterialButton(
+                                child: Text("Another Card"),
+                                color: Colors.brown[200],
+                                onPressed: addCard,
+                              ),
+                              MaterialButton(
+                                child: Text("Next Round"),
+                                color: Colors.brown[200],
+                                onPressed: addCard,
+                              ),
+                            ],
                           ),
-                          MaterialButton(
-                            child: Text("Next Round"),
-                            onPressed: null,
-                          ),
-                        ],
-                      ),
-                    ]),
+                        ),
+                      ]),
+                ),
               )
             : Center(
                 child: MaterialButton(

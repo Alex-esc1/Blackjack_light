@@ -63,6 +63,20 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
     "cards/A4.png": 11,
   };
 
+  Map<String, int> playCards = {};
+
+  @override
+  void initState() {
+    playCards.addAll(deckOfCards);
+    super.initState();
+  }
+
+  void changeCards() {
+    setState(() {
+      isGameStarted = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +85,11 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
                 child: Container(),
               )
             : Center(
-                child: MaterialButton(onPressed: () {}, child: Text("Start")),
+                child: MaterialButton(
+                    onPressed: () {
+                      changeCards();
+                    },
+                    child: Text("Start")),
               ));
   }
 }

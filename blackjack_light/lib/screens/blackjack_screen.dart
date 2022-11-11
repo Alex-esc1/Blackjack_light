@@ -18,6 +18,9 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
   String? dealersFirstCard;
   String? dealersSecondCard;
 
+  int clientsScore = 0;
+  int dealersScore = 0;
+
   final Map<String, int> deckOfCards = {
     "cards/2.1.png": 2,
     "cards/2.2.png": 2,

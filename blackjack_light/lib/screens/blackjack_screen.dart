@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class BlackJackScreen extends StatefulWidget {
@@ -90,12 +92,33 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
     });
   }
 
+  void addCard() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: isGameStarted == true
             ? SafeArea(
-                child: Container(),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      //dealers cards
+                      Column(
+                        children: [
+                          Text("Dealer score $dealersScore"),
+                          SizedBox(height: 20),
+                        ],
+                      ),
+                      //playeer cards
+                      Column(
+                        children: [
+                          Text("Playeer score $clientsScore"),
+                          SizedBox(height: 20),
+                        ],
+                      ),
+                      // 2 button
+                      Column(),
+                    ]),
               )
             : Center(
                 child: MaterialButton(

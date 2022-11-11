@@ -6,6 +6,8 @@ class BlackJackScreen extends StatefulWidget {
 }
 
 class _BlackJackScreenState extends State<BlackJackScreen> {
+  bool isGameStarted = false;
+
   final Map<String, int> deckOfCards = {
     "cards/2.1.png": 2,
     "cards/2.2.png": 2,
@@ -63,6 +65,13 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        body: isGameStarted == true
+            ? SafeArea(
+                child: Container(),
+              )
+            : Center(
+                child: MaterialButton(onPressed: () {}, child: Text("Start")),
+              ));
   }
 }

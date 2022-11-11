@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:blackjack_light/screens/widget/card_grid_view.dart';
+import 'package:blackjack_light/screens/widget/my_button.dart';
 import 'package:flutter/material.dart';
 
 class BlackJackScreen extends StatefulWidget {
@@ -83,7 +85,6 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     playingCards.addAll(deckOfCards);
   }
@@ -171,6 +172,7 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green,
       body: isGameStarted == true
           ? SafeArea(
               child: Center(
@@ -184,11 +186,11 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
                         "Dealer Score $dealerScore",
                         style: TextStyle(
                           color: dealerScore <= 21
-                              ? Colors.green[900]
+                              ? Colors.black
                               : Colors.red[900],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       // Grid View
                       CardsGridView(cards: dealersCards),
                     ],
@@ -200,11 +202,11 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
                         "Player Score $playerScore",
                         style: TextStyle(
                           color: playerScore <= 21
-                              ? Colors.green[900]
+                              ? Colors.black
                               : Colors.red[900],
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       // Grid View
                       CardsGridView(cards: myCards),
                     ],
@@ -226,48 +228,6 @@ class _BlackJackScreenState extends State<BlackJackScreen> {
           : Center(
               child: MyButton(onPressed: changeCards, label: "Start Game"),
             ),
-    );
-  }
-}
-
-class MyButton extends StatelessWidget {
-  MyButton({required this.onPressed, required this.label});
-
-  final Function() onPressed;
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-      color: Colors.brown[200],
-      onPressed: onPressed,
-      child: Text(label),
-    );
-  }
-}
-
-class CardsGridView extends StatelessWidget {
-  const CardsGridView({
-    required this.cards,
-  });
-
-  final List<Image> cards;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3),
-          itemCount: cards.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: cards[index],
-            );
-          }),
     );
   }
 }
